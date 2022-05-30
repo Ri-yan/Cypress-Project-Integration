@@ -11,36 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.16.2-chrome81-ff75
     steps:
-      - uses:  actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          run: |
-            npm ci
-            $(npm bin)/cypress verify
-             
-#       - name: Install a project with a clean slate
-#         run: |
-#           npm ci
-#           $(npm bin)/cypress verify
+      - uses: actions/checkout@v2
 
-      # - name: Run Cypress tests
-      #   run: npm run test:chrome
-      #   continue-on-error: true
+      - name: Install a project with a clean slate
+        run: |
+          npm ci
+          $(npm bin)/cypress verify
 
-      # - name: Copy test execution videos and screenshots
-      #   run: |
-      #     mkdir -p public
-      #     cp -r cypress/videos public/videos
-      #     # cp -r cypress/screenshots public/screenshots
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: true
 
-      # - name: Merge test results into one
-      #   run: npm run report:merge
+      - name: Copy test execution videos and screenshots
+        run: |
+          mkdir -p public
+          cp -r cypress/videos public/videos
+          # cp -r cypress/screenshots public/screenshots
 
-      # - name: Generate HTML report
-      #   run: npm run report:generate
+      - name: Merge test results into one
+        run: npm run report:merge
+
+      - name: Generate HTML report
+        run: npm run report:generate
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.7.3
