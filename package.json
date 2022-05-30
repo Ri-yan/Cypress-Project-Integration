@@ -1,0 +1,67 @@
+{
+  "name": "firebase-react-auth",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Simple Authentication and Cypress project",
+  "main": "index.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
+    "autoprefixer": "10.4.5",
+    "bootstrap": "^5.1.3",
+    "firebase": "^9.8.1",
+    "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.1.0",
+    "react-google-button": "^0.7.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "cypress": "^9.6.1",
+    "xlsx": "^0.18.5",
+    "jsonpath": "^1.1.1"
+  },
+  "scripts": {
+    "start": "set PORT=3000 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test && cypress run",
+    "eject": "react-scripts eject",
+    "runHeadless": "npx cypress run --headless",
+    "test:chrome": "cypress run --browser chrome",
+    "report:merge": "mochawesome-merge cypress/results/json/*.json > index.json",
+    "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle test.html"
+  
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "node-xlsx": "^0.21.0",
+    "cypress-multi-reporters": "^1.4.0",
+    "mocha": "^8.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.1.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/Ri-yan/Cypress-Project-Integration.git"
+  },
+  "homepage": "https://github.com/Ri-yan/Cypress-Project-Integration#readme" 
+}
