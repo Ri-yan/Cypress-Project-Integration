@@ -17,8 +17,8 @@ jobs:
         run: |
           npm ci
           $(npm bin)/cypress verify
-        - run: npm install
-        - run: npm start
+        - run: npm install -g wait-on 
+        - run: npm start -g wait-on
 
       - name: Run Cypress tests
         run: npm run test:chrome
