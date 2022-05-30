@@ -17,7 +17,8 @@ jobs:
         - run: npm start -g wait-on
       - name: Install a project with a clean slate
         run: |
-          npm ci
+          npm ci -g wait-on 
+          npm start -g wait-on
           $(npm bin)/cypress verify
 
       - name: Run Cypress tests
