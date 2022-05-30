@@ -12,13 +12,13 @@ jobs:
     container: cypress/browsers:node12.16.2-chrome81-ff75
     steps:
       - uses: actions/checkout@v2
-
+      - name: NPM START
+        - run: npm install -g wait-on 
+        - run: npm start -g wait-on
       - name: Install a project with a clean slate
         run: |
           npm ci
           $(npm bin)/cypress verify
-        - run: npm install -g wait-on 
-        - run: npm start -g wait-on
 
       - name: Run Cypress tests
         run: npm run test:chrome
